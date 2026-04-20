@@ -1,0 +1,39 @@
+---
+interface Props {
+  ctaLabel?: string;
+  ctaHref?: string;
+}
+
+const { ctaLabel = "Demander un accès", ctaHref = "#cta" } = Astro.props;
+---
+
+<style>
+  .om-nav-wrapper {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(223, 229, 237, 0.88);
+    backdrop-filter: blur(18px) saturate(150%);
+    -webkit-backdrop-filter: blur(18px) saturate(150%);
+    border-bottom: 1px solid var(--om-border);
+  }
+
+  @media (max-width: 768px) {
+    .om-nav-links { display: none; }
+  }
+</style>
+
+<header class="om-nav-wrapper">
+  <div class="om-container">
+    <nav class="om-nav">
+      <a href="/" class="om-logo">
+        <img src="/logos/onemice-midnight.png" alt="OneMICE" />
+      </a>
+      <ul class="om-nav-links">
+        <li><a href="#pillars">Plateforme</a></li>
+        <li><a href="#manifeste">À propos</a></li>
+        <li><a href={ctaHref} class="om-btn om-btn-primary">{ctaLabel}</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,85 @@
+---
+interface Props {
+  overline?: string;
+  headline?: string;
+  subtitle?: string;
+  primaryLabel?: string;
+  primaryHref?: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+}
+
+const {
+  overline = "Accès plateforme",
+  headline = "Rejoignez l'infrastructure<br>du MICE corporate.",
+  subtitle = "OneMICE brings unity to corporate event management across Europe. Un centre de gravité pour vos équipes, vos prestataires, vos décisions.",
+  primaryLabel = "Demander un accès",
+  primaryHref = "#",
+  secondaryLabel = "Voir la plateforme",
+  secondaryHref = "#",
+} = Astro.props;
+---
+
+<section class="cta-section om-section-lg" id="cta">
+  <div class="om-container">
+    <div class="om-stack-4 om-text-center inner">
+      <p class="om-overline overline-muted">{overline}</p>
+      <h2 class="om-h1 om-text-on-dark" set:html={headline} />
+      <p class="om-body-l subtitle-muted">{subtitle}</p>
+      <div class="om-flex-center om-gap-2 buttons">
+        <a href={primaryHref} class="om-btn om-btn-accent">{primaryLabel}</a>
+        <a href={secondaryHref} class="om-btn btn-ghost-light">{secondaryLabel}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-section {
+    background: var(--om-midnight-ink);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 110%, rgba(247, 79, 35, 0.2) 0%, transparent 55%);
+    pointer-events: none;
+  }
+
+  .inner {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .overline-muted { color: var(--om-steel-haze); }
+  .subtitle-muted { color: var(--om-steel-haze); }
+
+  .buttons { flex-wrap: wrap; }
+
+  .btn-ghost-light {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 1.75rem;
+    font-family: var(--om-font);
+    font-size: var(--om-size-body);
+    font-weight: 500;
+    line-height: 1;
+    border-radius: var(--om-radius-pill);
+    border: 1px solid rgba(157, 172, 195, 0.25);
+    color: var(--om-vapor-mist);
+    background: transparent;
+    cursor: pointer;
+    transition: all var(--om-transition);
+  }
+
+  .btn-ghost-light:hover {
+    border-color: rgba(157, 172, 195, 0.5);
+    opacity: 1;
+  }
+</style>

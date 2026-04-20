@@ -1,0 +1,28 @@
+---
+interface Props {
+  year?: number;
+}
+
+const { year = new Date().getFullYear() } = Astro.props;
+---
+
+<footer class="om-footer om-bg-light">
+  <div class="om-container">
+    <div class="om-flex-between footer-inner">
+      <div class="om-stack-1">
+        <p class="om-caption">© {year} OneMICE. Where MICE comes together.</p>
+        <p class="om-caption caption-muted">
+          OneMICE brings unity to corporate event management across Europe.
+        </p>
+      </div>
+      <div class="om-logo om-logo-sm">
+        <img src="/logos/onemice-midnight.png" alt="OneMICE" />
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer-inner { flex-wrap: wrap; gap: var(--om-space-3); }
+  .caption-muted { color: var(--om-steel-haze); }
+</style>

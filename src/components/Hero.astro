@@ -1,0 +1,41 @@
+---
+interface Props {
+  overline?: string;
+  headline?: string;
+  subtitle?: string;
+  primaryLabel?: string;
+  primaryHref?: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+}
+
+const {
+  overline = "Infrastructure MICE corporate",
+  headline = "Where MICE<br>comes together",
+  subtitle = "OneMICE instaure le cadre qui manquait au MICE corporate. Une infrastructure pour unifier les flux, aligner les acteurs, piloter la complexité.",
+  primaryLabel = "Découvrir l'infrastructure",
+  primaryHref = "#cta",
+  secondaryLabel = "Voir la plateforme",
+  secondaryHref = "#pillars",
+} = Astro.props;
+---
+
+<section class="om-hero om-bg-gradient-hero om-accent-glow">
+  <div class="om-container">
+    <div class="om-stack-4 om-fade-in">
+      <p class="om-overline">{overline}</p>
+      <h1 class="om-hero-baseline" set:html={headline} />
+      <p class="om-hero-subtitle">{subtitle}</p>
+      <div class="om-flex om-gap-2 cta-buttons">
+        <a href={primaryHref} class="om-btn om-btn-primary">{primaryLabel}</a>
+        <a href={secondaryHref} class="om-btn om-btn-secondary">{secondaryLabel}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-buttons {
+    flex-wrap: wrap;
+  }
+</style>

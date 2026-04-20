@@ -1,0 +1,90 @@
+---
+interface Pillar {
+  number: string;
+  title: string;
+  body: string;
+}
+
+interface Props {
+  overline?: string;
+  headline?: string;
+  pillars?: Pillar[];
+}
+
+const {
+  overline = "Les 3 piliers",
+  headline = "Une infrastructure.<br>Trois dimensions.",
+  pillars = [
+    {
+      number: "01",
+      title: "Fluidifier<br>l'exécution",
+      body: "OneMICE simplifie l'expérience sans exposer la complexité. Les flux circulent. Les interactions s'enchaînent sans friction.",
+    },
+    {
+      number: "02",
+      title: "Instaurer<br>la maîtrise",
+      body: "Derrière la fluidité, un cadre. Les décisions se stabilisent. Le mouvement devient lisible. La complexité devient pilotable.",
+    },
+    {
+      number: "03",
+      title: "Structurer<br>l'écosystème",
+      body: "OneMICE aligne les acteurs en un système unifié. Ce qui était dispersé trouve son orbite.",
+    },
+  ],
+} = Astro.props;
+---
+
+<section class="om-section-lg om-bg-gradient-strong" id="pillars">
+  <div class="om-container">
+    <div class="om-stack-6">
+
+      <div class="om-stack-2">
+        <p class="om-overline muted">{overline}</p>
+        <h2 class="om-h1 om-text-on-dark headline" set:html={headline} />
+      </div>
+
+      <div class="om-grid om-grid-3">
+        {pillars.map((pillar, i) => (
+          <article class="pillar-card om-fade-in" style={`animation-delay: ${i * 100}ms`}>
+            <span class="pillar-num">{pillar.number}</span>
+            <div class="om-stack-2">
+              <h3 class="om-h3 om-text-on-dark" set:html={pillar.title} />
+              <p class="om-body body-muted">{pillar.body}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .muted       { color: var(--om-steel-haze); }
+  .headline    { max-width: 520px; }
+  .body-muted  { color: var(--om-steel-haze); }
+
+  .pillar-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--om-space-3);
+    padding: var(--om-space-5) var(--om-space-4);
+    border-radius: var(--om-radius-lg);
+    border: 1px solid rgba(157, 172, 195, 0.18);
+    background: rgba(255, 255, 255, 0.04);
+    transition: border-color var(--om-transition), background var(--om-transition);
+  }
+
+  .pillar-card:hover {
+    border-color: rgba(157, 172, 195, 0.38);
+    background: rgba(255, 255, 255, 0.07);
+  }
+
+  .pillar-num {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--om-steel-haze);
+  }
+</style>

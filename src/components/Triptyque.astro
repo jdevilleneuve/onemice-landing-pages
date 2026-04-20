@@ -1,0 +1,28 @@
+---
+interface Props {
+  items?: string[];
+}
+
+const {
+  items = ["One Solution", "Every Stakeholder", "Full Control"],
+} = Astro.props;
+---
+
+<section class="triptyque-wrapper om-bg-light om-section-sm">
+  <div class="om-container">
+    <div class="om-triptyque">
+      {items.map((item, i) => (
+        <>
+          <span class="om-triptyque-item">{item}</span>
+          {i < items.length - 1 && <span class="om-triptyque-sep" />}
+        </>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .triptyque-wrapper {
+    border-bottom: 1px solid var(--om-border);
+  }
+</style>

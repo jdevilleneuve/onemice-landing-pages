@@ -1,0 +1,41 @@
+---
+interface Props {
+  overline?: string;
+}
+
+const { overline = "Pourquoi OneMICE" } = Astro.props;
+---
+
+<section class="om-section om-bg-light" id="manifeste">
+  <div class="om-container-narrow">
+    <div class="om-stack-5">
+
+      <p class="om-overline">{overline}</p>
+
+      <div class="om-manifesto">
+        <p>Les meetings d'entreprise opèrent encore dans un environnement fragmenté.</p>
+        <p>Pas par choix. Par absence de cadre.</p>
+        <p>Les équipes compensent. Elles ajustent en permanence. Elles maintiennent l'équilibre dans un environnement qui n'a jamais été conçu pour offrir une maîtrise globale.</p>
+      </div>
+
+      <blockquote class="om-highlight-line">
+        <p class="om-body-l om-text-secondary">
+          Ce qui était dispersé trouve son orbite.
+          Ce qui était informel devient pilotable.
+          Ce qui était difficile à anticiper devient maîtrisable.
+        </p>
+      </blockquote>
+
+      <p class="om-h2 conclusion">
+        Nous n'ajoutons pas un outil.<br />
+        Nous instaurons un cadre.
+      </p>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  blockquote { margin: 0; }
+  .conclusion { max-width: 600px; }
+</style>
