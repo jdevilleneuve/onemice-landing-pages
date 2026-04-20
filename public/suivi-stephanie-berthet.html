@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Échange Stéphanie B. — Jean de V. · 20 avril 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/brand.css">
+  <style>
+    /* ─── Overrides de page ─────────────────────────────── */
+    body { background: #DFE5ED; }
+
+    /* ─── Header barre ──────────────────────────────────── */
+    .page-header {
+      background: #262B38;
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    /* ─── Hero dédié synthèse call ──────────────────────── */
+    .hero-call {
+      background: linear-gradient(160deg, #262B38 0%, #515F78 100%);
+      padding: 96px 0 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-call::after {
+      content: '';
+      position: absolute;
+      bottom: -60px;
+      right: -60px;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(247,79,35,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+
+    .speaker-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(223,229,237,0.1);
+      border: 1px solid rgba(223,229,237,0.2);
+      border-radius: 999px;
+      padding: 6px 14px 6px 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: #DFE5ED;
+    }
+    .speaker-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #515F78;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: #DFE5ED;
+      flex-shrink: 0;
+    }
+    .speaker-avatar.ext {
+      background: rgba(247,79,35,0.25);
+      color: #F74F23;
+    }
+
+    .hero-sep {
+      width: 1px;
+      height: 20px;
+      background: rgba(157,172,195,0.4);
+    }
+
+    /* ─── Sections ──────────────────────────────────────── */
+    .section-light {
+      background: #DFE5ED;
+      padding: 80px 0;
+    }
+    .section-mid {
+      background: #9DACC3;
+      padding: 80px 0;
+    }
+    .section-dark {
+      background: #262B38;
+      padding: 80px 0;
+    }
+
+    /* ─── Insight cards ─────────────────────────────────── */
+    .insight-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .insight-card {
+      background: rgba(255,255,255,0.55);
+      backdrop-filter: blur(16px) saturate(130%);
+      border: 1px solid rgba(255,255,255,0.5);
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: 0 8px 32px rgba(38,43,56,0.07);
+    }
+    .insight-card .ic-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: #262B38;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .insight-card .ic-icon svg { display: block; }
+    .insight-card h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 17px;
+      font-weight: 500;
+      letter-spacing: -0.3px;
+      color: #262B38;
+      margin: 0 0 10px;
+    }
+    .insight-card p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      color: #515F78;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ─── Quote ─────────────────────────────────────────── */
+    .pull-quote {
+      border-left: 3px solid #F74F23;
+      padding: 4px 0 4px 28px;
+      margin: 40px 0;
+    }
+    .pull-quote p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 19px;
+      font-weight: 500;
+      letter-spacing: -0.3px;
+      color: #262B38;
+      line-height: 1.5;
+      margin: 0 0 8px;
+    }
+    .pull-quote span {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: #9DACC3;
+    }
+
+    /* ─── Action items ──────────────────────────────────── */
+    .actions-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 48px;
+    }
+
+    .action-item {
+      display: grid;
+      grid-template-columns: 48px 1fr auto;
+      align-items: start;
+      gap: 20px;
+      background: rgba(223,229,237,0.06);
+      border: 1px solid rgba(223,229,237,0.12);
+      border-radius: 20px;
+      padding: 24px 28px;
+    }
+    .action-item:hover {
+      border-color: rgba(223,229,237,0.22);
+      background: rgba(223,229,237,0.09);
+    }
+
+    .action-number {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(223,229,237,0.1);
+      border: 1px solid rgba(223,229,237,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: #DFE5ED;
+      flex-shrink: 0;
+    }
+    .action-number.accent {
+      background: rgba(247,79,35,0.15);
+      border-color: rgba(247,79,35,0.3);
+      color: #F74F23;
+    }
+
+    .action-body {}
+    .action-owner {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #9DACC3;
+      margin: 0 0 6px;
+    }
+    .action-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: #DFE5ED;
+      margin: 0 0 8px;
+      line-height: 1.4;
+    }
+    .action-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: #9DACC3;
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    .action-date {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      color: #9DACC3;
+      white-space: nowrap;
+      padding-top: 4px;
+      background: rgba(157,172,195,0.1);
+      border: 1px solid rgba(157,172,195,0.2);
+      border-radius: 999px;
+      padding: 4px 12px;
+      height: fit-content;
+      align-self: flex-start;
+      margin-top: 2px;
+    }
+    .action-date.urgent {
+      color: #F74F23;
+      background: rgba(247,79,35,0.08);
+      border-color: rgba(247,79,35,0.2);
+    }
+
+    /* ─── Section titre header ──────────────────────────── */
+    .section-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: currentColor;
+      opacity: 0.2;
+    }
+
+    /* ─── Context block ──────────────────────────────────── */
+    .context-block {
+      background: rgba(255,255,255,0.45);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.5);
+      border-radius: 20px;
+      padding: 28px 32px;
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: 3px 1fr;
+      gap: 24px;
+    }
+    .context-accent-bar {
+      background: linear-gradient(180deg, #F74F23 0%, transparent 100%);
+      border-radius: 3px;
+    }
+    .context-block p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      color: #515F78;
+      line-height: 1.65;
+      margin: 0;
+    }
+    .context-block p + p { margin-top: 12px; }
+
+    /* ─── CTA section ────────────────────────────────────── */
+    .cta-section {
+      background: #262B38;
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    /* ─── Footer ─────────────────────────────────────────── */
+    .page-footer {
+      background: #1a1e28;
+      padding: 32px 0;
+    }
+
+    @media (max-width: 640px) {
+      .action-item { grid-template-columns: 40px 1fr; }
+      .action-date { grid-column: 2; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════
+     NAV / HEADER
+══════════════════════════════════════════════════ -->
+<header class="page-header">
+  <div class="om-container">
+    <div class="om-flex om-flex-between" style="align-items:center;">
+      <div class="om-logo">
+        <img src="/logos/onemice-vapor.png" alt="OneMICE">
+      </div>
+      <p class="om-caption" style="color:#9DACC3; margin:0;">Note de suivi — 20 avril 2026</p>
+    </div>
+  </div>
+</header>
+
+
+<!-- ══════════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════════ -->
+<section class="hero-call">
+  <div class="om-container">
+
+    <div class="hero-meta">
+      <div class="speaker-badge">
+        <div class="speaker-avatar">JV</div>
+        Jean de Villeneuve Bargemont
+      </div>
+      <div class="hero-sep"></div>
+      <div class="speaker-badge">
+        <div class="speaker-avatar ext">SB</div>
+        Stéphanie Berthet
+      </div>
+      <div class="hero-sep"></div>
+      <p class="om-caption" style="color:#9DACC3; margin:0;">20 avril 2026 · Visio</p>
+    </div>
+
+    <p class="om-overline" style="color:#9DACC3; margin-bottom:16px;">Achats MICE — Analyse de marché</p>
+    <h1 class="om-h1" style="color:#DFE5ED; max-width:720px; margin-bottom:24px;">
+      Synthèse de l'échange<br>et points de suivi
+    </h1>
+    <p class="om-body-l" style="color:#9DACC3; max-width:580px; margin-bottom:0;">
+      Échange exploratoire autour de la maturité des fonctions Achats, de l'intermédiation MICE et des modèles de rémunération des plateformes. Durée : ~35 min.
+    </p>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     CONTEXTE
+══════════════════════════════════════════════════ -->
+<section class="section-light">
+  <div class="om-container">
+
+    <p class="section-label" style="color:#515F78;">Contexte de l'échange</p>
+    <h2 class="om-h2" style="color:#262B38; max-width:600px;">
+      Pourquoi cette conversation
+    </h2>
+
+    <div class="context-block">
+      <div class="context-accent-bar"></div>
+      <div>
+        <p>Jean mène une mission d'analyse stratégique pour Châteauforme et son agence IME sur l'évolution de l'intermédiation MICE : digitalisation, plateformes procure-to-pay, repositionnement du modèle de rémunération.</p>
+        <p>Stéphanie intervient en management de transition en tant que directrice des achats pour une entreprise de location de véhicules. Elle apporte un regard de praticienne — après plusieurs postes dans de grands groupes (EDF, SNCF, Areva, DB) et une longue expérience en achats indirects.</p>
+        <p>L'objectif : confronter la vision du marché depuis les deux côtés — fournisseur / intermédiaire et direction achats — pour affiner l'analyse et identifier les relais pertinents.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     INSIGHTS
+══════════════════════════════════════════════════ -->
+<section class="section-light" style="padding-top:0;">
+  <div class="om-container">
+
+    <p class="section-label" style="color:#515F78;">Ce qu'on retient</p>
+    <h2 class="om-h2" style="color:#262B38;">Les enseignements clés</h2>
+
+    <div class="insight-grid">
+
+      <div class="insight-card">
+        <div class="ic-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <rect x="3" y="3" width="6" height="6" rx="2" fill="#DFE5ED"/>
+            <rect x="11" y="3" width="6" height="6" rx="2" fill="#515F78"/>
+            <rect x="3" y="11" width="6" height="6" rx="2" fill="#515F78"/>
+            <rect x="11" y="11" width="6" height="6" rx="2" fill="#9DACC3"/>
+          </svg>
+        </div>
+        <h3>Deux vitesses dans la fonction achat</h3>
+        <p>Les fonctions matures s'outillent (ERP, procure-to-pay, contract tech). Les fonctions immatures restent sur Excel et appels d'offres par mail. Le gap est structurel, pas conjoncturel.</p>
+      </div>
+
+      <div class="insight-card">
+        <div class="ic-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M10 3L17 7V13L10 17L3 13V7L10 3Z" stroke="#DFE5ED" stroke-width="1.5" fill="none"/>
+            <circle cx="10" cy="10" r="2.5" fill="#DFE5ED"/>
+          </svg>
+        </div>
+        <h3>Le rattachement révèle la maturité</h3>
+        <p>Une direction achats rattachée à la DAF est réduite au cost-cutting. Rattachée à la direction des opérations ou au DG, elle pilote la valeur. Ce signal structurel est un indicateur de maturité fiable.</p>
+      </div>
+
+      <div class="insight-card">
+        <div class="ic-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M4 10H16M10 4L16 10L10 16" stroke="#DFE5ED" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3>La friction du modèle commission</h3>
+        <p>Les plateformes MICE se rémunèrent sur les fournisseurs (10–15%). Quand elles proposent en plus un service structurel au client, celui-ci refuse de payer. La valeur est réelle, le modèle économique ne la reflète pas.</p>
+      </div>
+
+      <div class="insight-card">
+        <div class="ic-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <circle cx="10" cy="10" r="7" stroke="#DFE5ED" stroke-width="1.5"/>
+            <path d="M10 6V10L13 12" stroke="#DFE5ED" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>L'équation Châteauforme est bloquée</h3>
+        <p>Châteauforme concède déjà 5% de remise sur ses contrats cadres. Si la plateforme prend 10% de commission en plus, le modèle n'est pas viable. Un arbitrage entre remise client et commission plateforme s'impose.</p>
+      </div>
+
+      <div class="insight-card">
+        <div class="ic-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M10 3C6.13 3 3 6.13 3 10s3.13 7 7 7 7-3.13 7-7-3.13-7-7-7z" stroke="#DFE5ED" stroke-width="1.5" fill="none"/>
+            <path d="M10 7V10L12 12" stroke="#DFE5ED" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Un momentum de marché à saisir</h3>
+        <p>Cactus, Naboo et d'autres acteurs ont levé. Les prescripteurs basculent vers les directions achats. Le marché cherche un modèle stable. La fenêtre pour imposer une posture claire est ouverte.</p>
+      </div>
+
+      <div class="insight-card">
+        <div class="ic-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M17 7L10 13L7 10" stroke="#DFE5ED" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="5" cy="15" r="1.5" fill="#DFE5ED"/>
+          </svg>
+        </div>
+        <h3>L'ADRA comme relais structuré</h3>
+        <p>L'ADRA regroupe une cinquantaine de directeurs et responsables achats. Des ateliers thématiques ont lieu tous les jeudis matin. Le sujet MICE / digitalisation des achats n'y a pas encore été adressé.</p>
+      </div>
+
+    </div>
+
+    <div class="pull-quote" style="max-width:680px;">
+      <p>« Une fonction achat rattachée à un DAF, c'est une vision court terme. Et la vision court terme en achat, ça ne marche pas. »</p>
+      <span>Stéphanie Berthet — 20 avril 2026</span>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     POINTS DE SUIVI
+══════════════════════════════════════════════════ -->
+<section class="section-dark">
+  <div class="om-container">
+
+    <p class="section-label" style="color:#9DACC3;">Ce qu'on a acté</p>
+    <h2 class="om-h2" style="color:#DFE5ED; margin-bottom:8px;">Points de suivi</h2>
+    <p class="om-body" style="color:#9DACC3; max-width:520px;">Engagements mutuels pris en fin d'échange. Chaque action est nominée et datée.</p>
+
+    <div class="actions-list">
+
+      <!-- Action 1 — urgent -->
+      <div class="action-item">
+        <div class="action-number accent">01</div>
+        <div class="action-body">
+          <p class="action-owner">Jean → Stéphanie</p>
+          <p class="action-title">Envoyer une note de synthèse sur l'intermédiation MICE</p>
+          <p class="action-desc">Présenter le contexte, la tension autour du modèle de rémunération des plateformes, et la problématique Châteauforme / IME — pour permettre à Stéphanie de la soumettre au conseil ADRA du 11 mai.</p>
+        </div>
+        <span class="action-date urgent">Avant le 11 mai</span>
+      </div>
+
+      <!-- Action 2 -->
+      <div class="action-item">
+        <div class="action-number">02</div>
+        <div class="action-body">
+          <p class="action-owner">Stéphanie → Conseil ADRA</p>
+          <p class="action-title">Proposer un atelier thématique MICE au conseil de l'ADRA</p>
+          <p class="action-desc">Présenter le sujet lors du prochain conseil le 11 mai et évaluer si une matinale ADRA peut lui être dédiée. Format envisagé : atelier de réflexion collective avec intervenants.</p>
+        </div>
+        <span class="action-date">11 mai 2026</span>
+      </div>
+
+      <!-- Action 3 -->
+      <div class="action-item">
+        <div class="action-number">03</div>
+        <div class="action-body">
+          <p class="action-owner">Stéphanie → Jean</p>
+          <p class="action-title">Mise en contact avec Guillaume Trécamp (République Achats / CMA)</p>
+          <p class="action-desc">Stéphanie introduit Jean auprès de Guillaume Trécamp — Club des Managers Achats — qui organise une journée sur la digitalisation des achats en juin. Une opportunité de toucher un réseau complémentaire à l'ADRA.</p>
+        </div>
+        <span class="action-date">Suite à la note</span>
+      </div>
+
+      <!-- Action 4 -->
+      <div class="action-item">
+        <div class="action-number">04</div>
+        <div class="action-body">
+          <p class="action-owner">Stéphanie → membres ADRA</p>
+          <p class="action-title">Identifier des directeurs achats disponibles pour un échange bilatéral</p>
+          <p class="action-desc">Relayer en interne à l'ADRA la démarche de Jean et qualifier les membres disponibles pour des entretiens exploratoires — afin d'enrichir l'analyse de terrain.</p>
+        </div>
+        <span class="action-date">Après le 11 mai</span>
+      </div>
+
+      <!-- Action 5 -->
+      <div class="action-item">
+        <div class="action-number">05</div>
+        <div class="action-body">
+          <p class="action-owner">Jean</p>
+          <p class="action-title">S'inscrire à l'atelier digitalisation du Club des Managers Achats</p>
+          <p class="action-desc">Identifier l'événement de juin organisé par le CMA (République Achats), s'inscrire et prendre contact avec Guillaume Trécamp en amont — si la mise en relation par Stéphanie est confirmée.</p>
+        </div>
+        <span class="action-date">Juin 2026</span>
+      </div>
+
+      <!-- Action 6 -->
+      <div class="action-item">
+        <div class="action-number">06</div>
+        <div class="action-body">
+          <p class="action-owner">Jean</p>
+          <p class="action-title">Finaliser l'analyse et le repositionnement Châteauforme / IME</p>
+          <p class="action-desc">Conclure l'analyse stratégique sur l'intermédiation MICE, définir la posture de Châteauforme face aux plateformes, et arrêter le modèle de collaboration transparent avec les clients finaux. Inclure le repositionnement d'IME.</p>
+        </div>
+        <span class="action-date">Juin 2026</span>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     CTA
+══════════════════════════════════════════════════ -->
+<section class="cta-section">
+  <div class="om-container">
+    <div class="om-container-narrow" style="text-align:center;">
+      <p class="om-overline" style="color:#9DACC3; margin-bottom:20px;">Prochaine étape</p>
+      <h2 class="om-h2" style="color:#DFE5ED; margin-bottom:16px;">
+        La note part avant le 11 mai
+      </h2>
+      <p class="om-body" style="color:#9DACC3; margin-bottom:40px; max-width:480px; margin-left:auto; margin-right:auto;">
+        Jean prépare la synthèse structurée à partager au conseil ADRA. Stéphanie confirme la mise en relation avec Guillaume Trécamp par retour.
+      </p>
+      <a href="mailto:jdevilleneuve@onemice.com" class="om-btn om-btn-accent">
+        Répondre à Jean
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════════ -->
+<footer class="page-footer">
+  <div class="om-container">
+    <div class="om-flex om-flex-between" style="align-items:center; flex-wrap:wrap; gap:16px;">
+      <div class="om-logo om-logo-sm">
+        <img src="/logos/onemice-vapor.png" alt="OneMICE">
+      </div>
+      <p class="om-caption" style="color:#515F78; margin:0;">
+        Échange du 20 avril 2026 · Usage interne — OneMICE
+      </p>
+      <p class="om-caption" style="color:#515F78; margin:0;">Where MICE comes together</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
