@@ -18,6 +18,11 @@ const { ctaLabel = "Demander un accès", ctaHref = "#cta" } = Astro.props;
     border-bottom: 1px solid var(--om-border);
   }
 
+  /* Empêche la règle `.om-nav-links a` de brand.css d'écraser la couleur du bouton */
+  .om-nav-links .om-btn-primary {
+    color: var(--om-vapor-mist);
+  }
+
   @media (max-width: 768px) {
     .om-nav-links { display: none; }
   }
